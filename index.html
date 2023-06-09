@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividad de sql</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #cc26e2;
+      padding-top: 70px;
+    }
+    hr {
+        background-color: #6f42c2;
+        height: 2px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      section {
+        margin-top: 40px;
+        margin-bottom: 90px;
+      }
+
+    nav.navbar.navbar-light.custom-navbar {
+        background-color: #000000; 
+        color: #ffffff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    
+      nav.navbar.navbar-light.custom-navbar::before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        z-index: -1;
+        box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      nav.navbar.navbar-light.custom-navbar .navbar-nav .nav-link {
+        color: #ffffff;
+      }
+      nav.navbar.navbar-light.custom-navbar .navbar-brand {
+        color: #6f42c2;
+        font-family: "modern age", sans-serif;
+        font-size: 24px;
+      }
+      .nav-link {
+        font-size: 24px;
+        padding: 10px 20px;
+      }
+      .card-body {
+        background-color: #3c90f0; 
+        color: #000000;
+      }
+      ul li {
+        color: #44d9e8; 
+    }
+    h2 {
+        color: #44d9e8;
+    }
+      img {
+        border-radius: 5px;
+        
+      }
+     
+      .boton-descarga {
+        background-color: #44d9e8;
+        border: 1px solid white;
+        padding: 5px 30px;
+        border-radius: 4px;
+        color: white;
+        font-size: 15px;
+        
+      }
+      .boton-descarga:hover{
+        background-color: #6f42c2;
+        color: #44d9e8;
+      }
+     
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 10px;
+  }
+
+  .navbar-collapse {
+    justify-content: center;
+  }
+    
+      
+
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('.nav-link').click(function(e) {
+          e.preventDefault();
+          var target = $(this).attr('href');
+          $('html, body').animate({
+            scrollTop: $(target).offset().top
+          }, 500);
+        });
+      });
+  </script>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar fixed-top">
+    <div class="container d-flex justify-content-between"> 
+      <a class="navbar-brand" href="#">Actividad de SQL</a>
+      <div>
+        
+        <ul class="navbar-nav">  
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ejercicios
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#eje1" onclick="scrollToSection('eje1')">Ejercicio 1</a></li>
+              <li><a class="dropdown-item" href="#eje2" onclick="scrollToSection('eje2')">Ejercicio 2</a></li>
+              <li><a class="dropdown-item" href="#eje3" onclick="scrollToSection('eje3')">Ejercicio 3</a></li>
+              <li><a class="dropdown-item" href="#eje4" onclick="scrollToSection('eje4')">Ejercicio 4</a></li>
+              <li><a class="dropdown-item" href="#eje5" onclick="scrollToSection('eje5')">Ejercicio 5</a></li>
+              <li><a class="dropdown-item" href="#eje6" onclick="scrollToSection('eje6')">Ejercicio 6</a></li>
+              <li><a class="dropdown-item" href="#eje7" onclick="scrollToSection('eje7')">Ejercicio 7</a></li>
+              <li><a class="dropdown-item" href="#eje8" onclick="scrollToSection('eje8')">Ejercicio 8</a></li>
+              <li><a class="dropdown-item" href="#eje9" onclick="scrollToSection('eje9')">Ejercicio 9</a></li>
+              <li><a class="dropdown-item" href="#eje10" onclick="scrollToSection('eje10')">Ejercicio 10</a></li>
+              <li><a class="dropdown-item" href="#eje11" onclick="scrollToSection('eje11')">Ejercicio 11</a></li>
+              <li><a class="dropdown-item" href="#eje12" onclick="scrollToSection('eje12')">Ejercicio 12</a></li>
+              <li><a class="dropdown-item" href="#eje13" onclick="scrollToSection('eje13')">Ejercicio 13</a></li>
+              <li><a class="dropdown-item" href="#eje14" onclick="scrollToSection('eje14')">Ejercicio 14</a></li>
+              <li><a class="dropdown-item" href="#eje15" onclick="scrollToSection('eje15')">Ejercicio 15</a></li>
+            </ul>
+                <li class="nav-item">
+                    <a href="sena.sql" class="btn btn-primary boton-descarga">Descargar base de datos</a></li>
+            </li>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-1" id="eje1">
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (2).png" class="img-fluid" alt="" width="700px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #1</h2>
+                      <p>Listado de todos los usuarios registrados en la base de datos.</p>
+                      <ul>
+                          <li>Nombres</li>
+                          <li>Apellidos</li>
+                          <li>Correo</li>                          
+                      </ul>
+                      <code>
+                        SELECT nombre, apellidos, correo FROM `usuarios`;
+                    </code>                      
+                  </div>
+              </div>
+          </div>
+        </div>
+   </div>
+  </section>
+<hr>
+<section class="py-2" id="eje2" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (3).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #2</h2>
+                      <p>Listado de departamentos registrados en la base de datos.</p>
+                      <ul>
+                          <li>Nombre del departamento</li>
+                          <li>Nombre del pais</li>
+                      </ul>
+                      <code>
+                        SELECT d.nombre AS 'Nombre del departamento', p.nombre AS 'Nombre del país' FROM departamentos d JOIN paises p ON d.paises_id = p.id;
+                      </code>
+</section>
+<hr>
+<section class="py-3" id="eje3" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (4).png" class="img-fluid" alt="" width="600px">
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                       <h2>Ejercicio #3</h2>
+                      <p>Listado de escuelas por un país determinado.</p>
+                      <ul>
+                          <li>Nombre de la escuela</li>
+                          <li>Nombre del pais</li>
+                      </ul>
+                      <code>
+                        SELECT e.nombre AS 'nombre de la escuela', p.nombre AS 'nombre del país' FROM escuelas e INNER JOIN paises p ON e.paises_id = p.id WHERE p.nombre = 'españa';
+                      </code>
+  </section>
+<hr>
+<section class="py-4" id="eje4" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (5).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #4</h2>
+                      <p>Listado de usuarios ordenados (de mayor edad a menor edad).</p>
+                      <ul>
+                          <li>Nombres</li>
+                          <li>Apellidos</li>
+                          <li>Fecha de nacimiento</li>
+                         
+                      </ul>
+                      <code>
+                        SELECT nombre AS 'nombres', apellidos AS 'Apellidos', fecha de nacimiento AS 'Fecha de nacimiento' FROM usuario ORDER BY fecha de nacimiento ASC;
+                      </code>
+  </section>
+  <hr>
+<section class="py-5" id="eje5" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (6).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #5</h2>
+                      <p>En que departamento hay más usuarios registrados.</p>
+                      <ul>
+                          <li>Departamento</li>
+                          <li>Id</li>
+                          
+                      </ul>
+                      <code>
+                        SELECT d.nombre AS 'Departamento', d.id FROM departamentos d INNER JOIN usuario u ON d.id = u.departamentos_id GROUP BY d.nombre, d.id ORDER BY COUNT(u.id) DESC LIMIT 1;
+                      </code>
+  </section>
+  <hr>
+ <section class="py-6" id="eje6" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (7).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #6</h2>
+                      <p>Cual es el país con más usuarios registrados.</p>
+                      <ul>
+                          <li>Pais</li>
+                          <li>Id</li>
+                      </ul>
+                      <code>
+                        SELECT p.nombre AS 'País', p.id FROM paises p JOIN departamento d ON p.id = d.paises_id GROUP BY p.nombre, p.id ORDER BY COUNT(d.id) DESC LIMIT 1;
+                      </code>
+  </section>
+  <hr>
+<section class="py-7" id="eje7" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (8).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #7</h2>
+                      <p>Listar solo 3 departamentos.</p>
+                      <ul>
+                        <li>Nombre del departamento</li>
+                          <li>Id</li>
+                    
+                      </ul>
+                      <code>
+                        SELECT nombre AS 'nombre departamento', id FROM departamentos LIMIT 3;
+                      </code>
+  </section>
+  <hr>
+<section class="py-8" id="eje8" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (15).png" class="img-fluid" alt="" width="800px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #8</h2>
+                      <p>Listar la información de un usuario determinado.</p>
+                      <ul>
+                          <li>Nombres</li>
+                          <li>Apellidos</li>
+                          <li>Correo</li>
+                          <li>Nombre del colegio</li>
+                          <li>Nombre del departamento</li>
+                          <li>Nombre del pais</li>
+                      </ul>
+                      <code>
+                        SELECT u.nombre AS 'nombres', u.apellido AS 'apellidos', u.email AS 'correo', e.nombre AS 'nombre del colegio', d.nombre AS 'nombre del departamento', p.nombre AS 'nombre del país' FROM usuarios u JOIN escuela e ON u.escuela_id = e.id JOIN departamento d ON u.departamentos_id = d.id JOIN paises p ON d.paises_id = p.id WHERE u.id = '11';
+                      </code>
+  </section>
+  <hr>
+  <section class="py-9" id="eje9" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (9).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #9</h2>
+                      <p>Listado de usuarios con un nombre determinado “and” .</p>
+                      <ul>
+                          <li>Nombres</li>
+                          <li>Apellidos</li>
+                      </ul>
+                      <code>
+                        SELECT   nombre AS'Nombres', apellidos AS 'Apellidos' FROM usuarios WHERE nombres LIKE '%and%' OR apellidos LIKE '%and%';
+                      </code>
+  </section>
+  <hr>
+  <section class="py-10" id="eje10" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (10).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #10</h2>
+                      <p>Cuantos usuarios viven en un departamento determinado</p>
+                      <ul>
+                        <li>Cantidad de usuarios “Numero”</li>
+                    </ul>
+                       <code>
+                        SELECT COUNT(*) AS 'numero' FROM usuarios WHERE departamentos_id = 1;
+                      </code>
+  </section>
+  <hr>
+  <section class="py-11" id="eje11" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (11).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #11</h2>
+                      <p>Listado de usuarios que tengan más de 20 años.</p>
+                      <ul>
+                          <li>Nombres</li>
+                          <li>Apellidos</li>
+                          <li>Fecha de nacimiento</li>
+                      </ul>
+                      <code>
+                        SELECT nombre AS 'Nombres', apellido AS 'Apellidos', fecha de nacimiento AS 'Fecha de nacimiento' FROM usuarios WHERE fecha de nacimiento <= DATE_SUB(CURDATE(), INTERVAL 20 YEAR) ORDER BY ASC;
+                      </code>
+  </section>
+  <hr>
+  <section class="py-12" id="eje12" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (12).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #12</h2>
+                      <p>Listado de usuarios que tengan entre 20 y 60 años.</p>
+                      <ul>
+                          <li>Nombres</li>
+                          <li>Apellidos</li>
+                          <li>Nombre capital</li>
+                          
+                      </ul>
+                      <code>
+                        SELECT u.nombre AS 'Nombres', u.apellido AS 'Apellidos', p.capital AS 'Nombre capital' FROM usuarios u JOIN departamentos d ON u.departamentos_id = d.id JOIN paises p ON d.paises_id = p.id WHERE u.fecha de nacimiento>= DATE_SUB(CURDATE(), INTERVAL 60 YEAR) AND u.fecha de nacimiento <= DATE_SUB(CURDATE(), INTERVAL 20 YEAR);
+                      </code>
+  </section>
+  <hr>
+  <section class="py-13" id="eje13" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (13).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #13</h2>
+                      <p>Listado de colegios que tengan el numero “7” en su número de teléfono</p>
+                      <ul>
+                          <li>id</li>
+                          <li>nombre</li>
+                          <li>direccion</li>
+                          <li>telefono</li>
+                          <li>paises_id</li>
+                      </ul>
+                      <code>
+                        SELECT nombre AS 'Nombre colegio', telefono AS 'Número de teléfono' FROM escuela WHERE telefono LIKE '%7%';
+                      </code>
+  </section>
+  <hr>
+  <section class="py-14" id="eje14" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (14).png" class="img-fluid" alt="" width="600px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #14</h2>
+                      <p>Listado de usuarios que no estén asociados a ningún departamento</p>
+                      <ul>
+                          <li>Nombres</li>
+                          <li>Apellidos</li>
+                          <li>Correo</li>
+                          <li>Nombre del departamento</li>
+                      </ul>
+                      <code>
+                        SELECT nombre AS 'Nombres', apellido AS 'Apellidos' FROM usuarios WHERE departamentos_id IS NULL;
+                      </code>
+  </section>
+  <hr>
+  <section class="py-15" id="eje15" style="margin-top: 80px;">
+    
+    <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <img src="imagenes/Captura de pantalla (16).png" class="img-fluid" alt="" width="200px">
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                       <h2>Ejercicio #15</h2>
+                      <p> Listado de usuarios que no estén asociados a ningún colegio.</p>
+                      <ul>
+                          <li>Nombres</li>
+                          <li>Apellidos</li>
+                          <li>Correo</li>
+                          <li>Nombre del departamento</li>
+                      </ul>
+                      <code>
+                        SELECT nombre AS 'Nombres', apellido AS 'Apellidos' FROM usuarios WHERE escuelas_id IS NULL;
+                      </code>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  
+</body>
+</html>
+
